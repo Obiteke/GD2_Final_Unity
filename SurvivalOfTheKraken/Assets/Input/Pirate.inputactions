@@ -7,9 +7,17 @@
             "actions": [
                 {
                     "name": "Walking",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "4ca83289-808e-4327-aa1d-a098acb46a2f",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jumping",
+                    "type": "Button",
+                    "id": "cda2c2c7-32e0-4c25-a22a-81c1a43e6a2a",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -20,9 +28,20 @@
                     "id": "ea4891c5-4bb2-4247-99f0-6d82f5c019cf",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "",
                     "action": "Walking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1aa3bb0-510b-4f37-9df0-ca4c6055c664",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jumping",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
