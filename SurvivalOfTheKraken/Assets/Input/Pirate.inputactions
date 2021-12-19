@@ -1,0 +1,33 @@
+{
+    "name": "Pirate",
+    "maps": [
+        {
+            "name": "Pirate",
+            "id": "c14c5d30-bb2f-4b8d-8e70-b383a68bc735",
+            "actions": [
+                {
+                    "name": "Walking",
+                    "type": "PassThrough",
+                    "id": "4ca83289-808e-4327-aa1d-a098acb46a2f",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ea4891c5-4bb2-4247-99f0-6d82f5c019cf",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
