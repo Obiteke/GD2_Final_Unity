@@ -10,6 +10,10 @@ public class TentacleScript : MonoBehaviour
     [SerializeField]
     private bool Slap = false;
 
+    [SerializeField]
+    private float _timeRemaining = 0;
+    private bool _timerIsRunning = false;
+
     void Start()
     {
         _animator = gameObject.GetComponentInChildren<Animator>();
@@ -19,14 +23,32 @@ public class TentacleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Timer();
         if (!Slap)
         {
             transform.LookAt(_piratePos, Vector3.up);
+            _timerIsRunning = true;
         }
         else
         {
             _animator.SetBool("Slap",true);
             StartCoroutine(SlapAnimation(_animator.GetCurrentAnimatorStateInfo(0).length));
+        }
+    }
+    private void Timer()
+    {
+        if (_timerIsRunning)
+        {
+            if (_timeRemaining > 0)
+            {
+                _timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                _timeRemaining = Random.Range(2,10);
+                _timerIsRunning = false;
+                Slap = true;
+            }
         }
     }
     IEnumerator SlapAnimation(float delay)
