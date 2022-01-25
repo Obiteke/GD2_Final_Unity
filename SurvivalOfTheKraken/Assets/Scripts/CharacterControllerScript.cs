@@ -10,6 +10,7 @@ public class CharacterControllerScript : MonoBehaviour
     private Vector2 _moveInput;
     private bool _isMoving = false;
     private bool _isJumping = false;
+    private bool _isSlipping = false;
     private bool _isJumpingPressed;
     //private Animator _animator;
     private CharacterController _cc;
@@ -44,7 +45,8 @@ public class CharacterControllerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
+        if(!_isSlipping)
+            Movement();
         Rotation();
         _cc.Move(_moveDir * Time.fixedDeltaTime);
         HandleGravity();
@@ -130,6 +132,15 @@ public class CharacterControllerScript : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, angle, 0);
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        _isSlipping = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        _isSlipping = false;
     }
     #endregion
 }
